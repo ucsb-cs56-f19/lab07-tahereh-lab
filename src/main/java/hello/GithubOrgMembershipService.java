@@ -37,14 +37,20 @@ public class GithubOrgMembershipService implements MembershipService {
         logger.info("githubOrg=" + githubOrg);
     }
 
-    /**
-     * is current logged in user a member but NOT an admin of the github org
-     */
+    /** check membership
+
+     * @param oAuth2AuthenticationToken oauth token 
+     * @return  is current logged in user a member but NOT an admin of the github org?
+     **/
     public boolean isMember(OAuth2AuthenticationToken oAuth2AuthenticationToken) {
         return hasRole(oAuth2AuthenticationToken, "member");
     }
 
-    /** is current logged in user a member of the github org */
+    /** check membership
+ * @param oAuth2AuthenticationToken oauth token
+ * @return  is current logged in user a member of the github org ?
+
+ **/
     public boolean isAdmin(OAuth2AuthenticationToken oAuth2AuthenticationToken) {
         return hasRole(oAuth2AuthenticationToken, "admin");
     }
